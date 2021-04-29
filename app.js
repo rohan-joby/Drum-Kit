@@ -13,6 +13,10 @@ function handleKeydown(e) {
   key.classList.add("playing");
 }
 
+function handleMousedown(e){
+  console.log(e);
+}
+
 //to handle end of transition
 function endTransition(e) {
   if ((e.propertyName = "transform")) {
@@ -22,6 +26,9 @@ function endTransition(e) {
 
 //listening for key press
 document.addEventListener("keydown", handleKeydown);
+
+//listening for button click
+document.addEventListener("mousedown",handleMousedown);
 
 //need to loop over NodeList to add Event Listener to listen for end of animation
 const keys = document.querySelectorAll(".key");

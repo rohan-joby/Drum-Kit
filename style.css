@@ -14,16 +14,20 @@
 }
 body {
   height: 100%;
+  background-image: url("images/drums-bg\ image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--primary-color-500);
 }
 
-.bg {
+/* .bg {
   position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
   width: 100%;
   opacity: 70%;
-}
+} */
 
 .heading {
   color: var(--accent-color-100);
