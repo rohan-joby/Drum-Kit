@@ -1,9 +1,9 @@
 :root {
-  --primary-color-500: #9CA3AF;
-  --primary-color-900: hsla(215, 28%, 17%,.7);
+  --primary-color-500: #9ca3af;
+  --primary-color-900: hsla(215, 28%, 17%, 0.7);
   --accent-color-100: #fbbf24;
   --accent-color-500: #d97706;
-  --accent-color-900: #92400E;
+  --accent-color-900: #92400e;
 }
 
 * {
@@ -52,16 +52,17 @@ body {
   color: var(--accent-color-500);
   background-color: var(--primary-color-900);
   border: 2px solid var(--primary-color-900);
+  transition: transform 0.1s;
 }
 
-.key p{
-  font-size: .9rem;
+.key p {
+  font-size: 0.9rem;
   font-weight: 300;
-  margin:0;
+  margin: 0;
   color: var(--accent-color-100);
 }
 
-.playing{
+.playing {
   transform: scale(1.1);
   border: 2px solid var(--accent-color-100);
   box-shadow: 3px 3px 5px #fbbf24;
