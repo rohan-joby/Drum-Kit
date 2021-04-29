@@ -1,8 +1,9 @@
 :root {
-  --primary-color-500: #525253;
-  --primary-color-900: #1f2937;
+  --primary-color-500: #9CA3AF;
+  --primary-color-900: hsla(215, 28%, 17%,.7);
   --accent-color-100: #fbbf24;
   --accent-color-500: #d97706;
+  --accent-color-900: #92400E;
 }
 
 * {
@@ -41,14 +42,23 @@ body {
 }
 
 .key {
-  font-size: 1.5rem;
-  font-weight: 700;
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 900;
   display: inline-block; /*cannot apply transform to inline elements*/
-  padding: 1.75rem;
+  padding: 1.5rem;
   margin: 1.25rem 1rem;
+  max-width: 5rem;
   color: var(--accent-color-500);
-  background-color: var(--primary-color-500);
+  background-color: var(--primary-color-900);
   border: 2px solid var(--primary-color-900);
+}
+
+.key p{
+  font-size: .9rem;
+  font-weight: 300;
+  margin:0;
+  color: var(--accent-color-100);
 }
 
 .playing{
