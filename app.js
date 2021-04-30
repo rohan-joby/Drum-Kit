@@ -14,6 +14,7 @@ function handleKeydown(e) {
 }
 
 function handleMousedown(e){
+  //const key=document.querySelector(".")
   console.log(e);
 }
 
