@@ -1,9 +1,10 @@
 :root {
   --primary-color-500: #9ca3af;
-  --primary-color-900: hsla(215, 28%, 17%, 0.7);
+  --primary-color-900: hsla(215, 28%, 17%, 0.5);
   --accent-color-100: #fbbf24;
   --accent-color-500: #d97706;
   --accent-color-900: #92400e;
+  --footer-color-600:hsla(0, 88%, 13%,0.85);
 }
 
 * {
@@ -23,7 +24,7 @@ body {
 .heading {
   color: var(--accent-color-100);
   font-size: 3rem;
-  padding: 5rem;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -32,8 +33,11 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-content: space-around;
+  align-items: center;
   max-width: 80vw;
-  margin: 5rem auto;
+  margin: 18vh auto;
+  background-color: var(--primary-color-900);
 }
 
 .key {
@@ -46,8 +50,10 @@ body {
   max-width: 5rem;
   color: var(--accent-color-500);
   background-color: var(--primary-color-900);
-  border: 2px solid var(--primary-color-900);
+  border: 3px solid var(--primary-color-900);
   transition: transform 0.1s;
+  z-index: 1;
+  cursor: pointer;
 }
 
 .key p {
@@ -55,11 +61,26 @@ body {
   font-weight: 300;
   margin: 0;
   color: var(--accent-color-100);
-  text-transform: capitalize;
 }
 
-.playing {
+.playing,
+.key:hover {
   transform: scale(1.1);
   border: 2px solid var(--accent-color-100);
-  box-shadow: 3px 3px 5px #fbbf24;
+  box-shadow: 0 0 5px #fbbf24;
+}
+
+
+footer {
+  background-color: var(--footer-color-600);
+  color: rgb(236, 236, 236);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+  text-align: center;
+  border-top-left-radius: 10px;
 }

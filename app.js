@@ -3,20 +3,36 @@ function handleKeydown(e) {
   const key = document.querySelector(`.key[data-key = "${e.code}"]`);
   const audio = document.querySelector(`.sound[data-key = "${e.code}"]`);
 
-  //exit if any other button is pressed.
-  if (!audio) {
-    return;
-  }
-  audio.currentTime = 0;
-  audio.play();
-  //for animation
-  key.classList.add("playing");
+  if (!audio) {  //exit if any other button is pressed.
+    return;  
+  } 
+  playSound(audio, key); //function to play drum kit sound
 }
 
-function handleMousedown(e){
-  //const key=document.querySelector(".")
-  console.log(e);
+function handleClick(e) {
+  const keyElement = e.target.closest(".key");
+  const dataKey = keyElement.getAttribute("data-key");
+  
+  const button = document.querySelector(`.key[data-key = ${dataKey}]`);
+  const audio = document.querySelector(`.sound[data-key = "${dataKey}"]`);
+
+  if(!button){return;}
+  if (!audio) {return;} //exit if any other button is pressed.
+  playSound(audio, button); //function to play drum kit sound
 }
+
+function playSound(audio, key) {
+  audio.currentTime = 0;
+  audio.play();
+  key.classList.add("playing"); //for animation
+}
+
+document.addEventListener("keydown", handleKeydown); //listening for key press
+document.addEventListener("click", handleClick); //listening for button click
+
+//need to loop over NodeList to add Event Listener to listen for end of animation
+const keys = document.querySelectorAll(".key");
+keys.forEach((key) => key.addEventListener("transitionend", endTransition));
 
 //to handle end of transition
 function endTransition(e) {
@@ -24,13 +40,3 @@ function endTransition(e) {
     this.classList.remove("playing");
   }
 }
-
-//listening for key press
-document.addEventListener("keydown", handleKeydown);
-
-//listening for button click
-document.addEventListener("mousedown",handleMousedown);
-
-//need to loop over NodeList to add Event Listener to listen for end of animation
-const keys = document.querySelectorAll(".key");
-keys.forEach((key) => key.addEventListener("transitionend", endTransition));
