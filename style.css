@@ -13,13 +13,30 @@
   padding: 0;
   font-family: sans-serif;
 }
+
+html{
+  height:100%;
+}
+
 body {
-  height: 100vh;
+  height: 100%;
   background-image: url("images/drums-bg\ image.jpg");
-  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
   background-color: var(--primary-color-500);
-  position: relative;
+  position: relative; 
+}
+
+.container {
+  min-height: 100%;
+  margin-bottom: -2.5rem; /*equal to height of footer*/
+}
+
+.container::after {
+  content: "";
+  display: block;
+  height: 2.5rem;
 }
 
 .heading {
@@ -71,6 +88,7 @@ body {
 }
 
 footer {
+  height: 2.5rem;
   background-color: var(--footer-color-600);
   color: rgb(236, 236, 236);
   position: absolute;
@@ -78,17 +96,16 @@ footer {
   left: 0;
   width: 100vw;
   padding: 1rem;
-  padding-bottom: 0.5rem;
   margin-bottom: 0;
   text-align: center;
   border-top-left-radius: 10px;
 }
 
 @media screen and (max-width: 700px) {
-  body{
+  body {
     background-position: 30% 0%;
   }
-  
+
   .heading {
     font-size: 2rem;
   }
