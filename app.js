@@ -23,7 +23,6 @@ function handleClick() {
     return;
   } //exit if any other button is pressed.
   playSound(audio, button); //function to play drum kit sound
-  e.preventDefault();
 }
 
 function playSound(audio, key) {
@@ -54,6 +53,8 @@ function endTransition(e) {
 Another method to get required dataKey if we add Event Listener to entire document
   const keyElement = e.target.closest(".key");
   const dataKey = keyElement.getAttribute("data-key");
+
+  e.preventDefault();
   
 Adding Event Listeners to document  
   document.addEventListener("click", handleClick); //listening for button click
