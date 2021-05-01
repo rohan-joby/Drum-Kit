@@ -10,14 +10,13 @@ function handleKeydown(e) {
   playSound(audio, key); //function to play drum kit sound
 }
 
-function handleClick(e) {
-  const keyElement = e.target.closest(".key");
-  const dataKey = keyElement.getAttribute("data-key");
+function handleClick() {
+  const dataKey = this.dataset.key; //datset is a DOMStringMap containing all the element's keys
 
   const button = document.querySelector(`.key[data-key = ${dataKey}]`);
   const audio = document.querySelector(`.sound[data-key = "${dataKey}"]`);
 
-  if (!keyElement) {
+  if (!dataKey) {
     return;
   }
   if (!audio) {
@@ -35,8 +34,9 @@ function playSound(audio, key) {
 
 document.addEventListener("keydown", handleKeydown); //listening for key press
 
-document.addEventListener("click", handleClick); //listening for button click
-document.addEventListener("touchend", handleClick, false); //for touchscreens, "click" event does not work on Safari if the element is not "clickable"
+const keyset = document.querySelectorAll(".key");
+keyset.forEach((key) => key.addEventListener("click", handleClick)); //listening for button click
+keyset.forEach((key) => key.addEventListener("touchend", handleClick, false)); //for touchscreens, "click" event does not work on Safari if the element is not "clickable"
 
 //need to loop over NodeList to add Event Listener to listen for end of animation
 const keys = document.querySelectorAll(".key");
@@ -48,3 +48,18 @@ function endTransition(e) {
     this.classList.remove("playing");
   }
 }
+
+/*Implementation (2nd method) for handleClick(e) 
+
+Another method to get required dataKey if we add Event Listener to entire document
+  const keyElement = e.target.closest(".key");
+  const dataKey = keyElement.getAttribute("data-key");
+  
+Adding Event Listeners to document  
+  document.addEventListener("click", handleClick); //listening for button click
+  document.addEventListener("touchend", handleClick, false); //for touchscreens, "click" event does not work on Safari if the element is not "clickable"
+*/
+
+/*  The issue wuth second method is that it produces an error " Can not read property 'getAttribute' of null"
+ when we click ANYWHERE other than the buttons on screen.
+ */
